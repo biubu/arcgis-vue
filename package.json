@@ -1,0 +1,101 @@
+{
+    "name": "arcgis-vue",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "esri-loader": "^2.5.0",
+        "vue": "^2.5.17",
+        "vue-router": "^3.0.1",
+        "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.0.4",
+        "@vue/cli-plugin-eslint": "^3.0.4",
+        "@vue/cli-service": "^3.0.4",
+        "less": "^3.0.4",
+        "less-loader": "^4.1.0",
+        "lint-staged": "^7.2.2",
+        "vue-template-compiler": "^2.5.17"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {
+            "no-var": "error",
+            "indent": [
+                "error",
+                4
+            ],
+            "semi": [
+                "error",
+                "always"
+            ],
+            "semi-style": [
+                "error",
+                "last"
+            ],
+            "semi-spacing": [
+                "error",
+                {
+                    "before": false,
+                    "after": true
+                }
+            ],
+            "no-dupe-keys": "error",
+            "no-eval": "error",
+            "no-alert": "error",
+            "no-eq-null": "error",
+            "max-len": [
+                "error",
+                {
+                    "code": 120
+                }
+            ],
+            "max-lines": [
+                "error",
+                {
+                    "max": 200,
+                    "skipBlankLines": true,
+                    "skipComments": true
+                }
+            ]
+        },
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ],
+    "gitHooks": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.js": [
+            "vue-cli-service lint",
+            "git add"
+        ],
+        "*.vue": [
+            "vue-cli-service lint",
+            "git add"
+        ]
+    }
+}
