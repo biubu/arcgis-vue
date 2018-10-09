@@ -31,6 +31,10 @@ export default {
                 'esri/geometry/Extent',
                 'esri/layers/TileInfo',
                 'esri/geometry/Point',
+                'esri/geometry/Circle',
+                'esri/symbols/SimpleFillSymbol',
+                'esri/graphic',
+                'esri/layers/GraphicsLayer'
             ], {
                 url: 'http://localhost:8080/3.26/init.js',
             }).then(this.TDTinstance)
@@ -43,7 +47,11 @@ export default {
                 SpatialReference,
                 Extent,
                 TileInfo,
-                Point
+                Point,
+                Circle,
+                SimpleFillSymbol,
+                Graphic,
+                GraphicsLayer
             ]
         ) {
             dojo.declare('TDT', TiledMapServiceLayer, {
@@ -72,18 +80,37 @@ export default {
                 SpatialReference,
                 Extent,
                 TileInfo,
-                Point
+                Point,
+                Circle,
+                SimpleFillSymbol,
+                Graphic,
+                GraphicsLayer
             };
         },
         initMap(obj) {
             this.mapObj = obj;// 将对象保存到vue data 的 maoObj中,方便调用;
             let map = new obj.Map('map', {logo: false});// 创建地图实例
             let pt = new obj.Point(105, 29); // 设置中心点
-            map.centerAndZoom(pt, 4); // 设置中心点和缩放级别;
+            map.centerAndZoom(pt, 2); // 设置中心点和缩放级别;
             let img = new TDT('img'); // 影像
             let cia = new TDT('cia');//路网
             map.addLayer(img); // 将图层添加到map对象
             map.addLayer(cia);
+            this.mapObj.map = map;
+            this.createCircle(); // 调用画圆方法
+        },
+        createCircle() {
+            let symbol = new this.mapObj.SimpleFillSymbol().setColor(null).outline.setColor('red');
+            let gl = new this.mapObj.GraphicsLayer({id: 'circles'});
+            this.mapObj.map.addLayer(gl);
+            for (let i = 0; i < 10000; i++) {// 循环画1万个点
+                let circle = new this.mapObj.Circle({
+                    radius: 5000 * (Math.random() + 0.5),
+                    center: [105 * (Math.random() + 0.5), 29 * (Math.random() + 0.5)]
+                });
+                let graphic = new this.mapObj.Graphic(circle, symbol);
+                gl.add(graphic);
+            }
         }
     }
 };
