@@ -100,7 +100,7 @@ export default {
             this.createCircle(); // 调用画圆方法
         },
         createCircle() {
-            let symbol = new this.mapObj.SimpleFillSymbol().setColor(null).outline.setColor('#070');
+            let symbol = new this.mapObj.SimpleFillSymbol().setColor(null).outline.setColor('#ff0');
             let gl = new this.mapObj.GraphicsLayer({id: 'circles'});
             this.mapObj.map.addLayer(gl);
             for (let i = 0; i < 50000; i++) {// 循环随机画几何图形
@@ -114,8 +114,8 @@ export default {
                 let extent = new this.mapObj.Extent({
                     'xmin': 105 * (randomx + 0.5),
                     'ymin': 29 * (randomx + 0.5),
-                    'xmax': 105.01 * (randomx + 0.5),
-                    'ymax': 29.5 * (randomy + 0.5),
+                    'xmax': 105.1 * (randomx + 0.5),
+                    'ymax': 29.2 * (randomy + 0.0000000005),
                     'spatialReference': {'wkid': 4326}
                 });
                 let graphic = new this.mapObj.Graphic(extent, symbol);
