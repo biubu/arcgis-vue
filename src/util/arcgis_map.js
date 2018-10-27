@@ -1,30 +1,14 @@
 /* eslint-disable no-undef */
-import { loadScript, loadCss, loadModules } from 'esri-loader';
+import {  loadCss, loadModules } from 'esri-loader';
 import tileInfo from './tileInfo';
 
 export default {
     name: 'ArcgisMap',
     data() {
         return {
-            mapObj: {}
-        };
-    },
-    mounted() {
-        this.init();
-    },
-    methods: {
-        init() {
-            // 加载js;
-            loadScript({
-                url: 'http://192.168.2.20/arcgis/init.js',
-                dojoConfig: {
-                    async: true
-                }
-            });
-            // 加载css;
-            loadCss('http://192.168.2.20/arcgis/esri/css/esri.css');
-            // 加载模块
-            loadModules([
+            gisConstructor: {}, //gis 构造函数
+            gisInst: {}, // gis 实例
+            gisModules: [
                 'esri/map',
                 'esri/layers/TiledMapServiceLayer',
                 'esri/SpatialReference',
@@ -35,34 +19,42 @@ export default {
                 'esri/symbols/SimpleFillSymbol',
                 'esri/graphic',
                 'esri/layers/GraphicsLayer',
-            ], {
-                url: 'http://192.168.2.20/arcgis/init.js',
+            ]
+        };
+    },
+    mounted() {
+        this.init();
+    },
+    methods: {
+        init() {
+            // 加载css;
+            loadCss('http://localhost/arcgis/esri/css/esri.css');
+            // 加载模块
+            loadModules(this.gisModules, {
+                url: 'http://localhost/arcgis/init.js',
             }).then(this.TDTinstance)
                 .then(this.initMap);
         },
-        TDTinstance(
-            [
-                Map,
-                TiledMapServiceLayer,
-                SpatialReference,
-                Extent,
-                TileInfo,
-                Point,
-                Circle,
-                SimpleFillSymbol,
-                Graphic,
-                GraphicsLayer,
-            ]
-        ) {
-            dojo.declare('TDT', TiledMapServiceLayer, {
+        TDTinstance(args) {
+            // 这里处理了一下传参，构造函数全部保存到 gisConstructor 对象中，对应的函数
+            // key 值为加载模块的最后一个单词
+            // 注意大小写，3.x 的API感觉有点乱，API文件的开头有大写有小写，注意一定对应起来，
+            // 比如 map.js 和 graphic.js 的文件名的开头就是小写的，
+            for (let k in args) {
+                let name = this.gisModules[k].split('/').pop();
+                this.gisConstructor[name] = args[k];
+            }
+
+            let that = this;
+            dojo.declare('TDT', this.gisConstructor.TiledMapServiceLayer, {
 
                 constructor(maptype) {
                     this._maptype = maptype;
-                    this.spatialReference = new SpatialReference({wkid: 4326});
-                    this.initialExtent = (this.fullExtent = new Extent(-180, -90, 180, 90,
+                    this.spatialReference = new that.gisConstructor.SpatialReference({wkid: 4326});
+                    this.initialExtent = (this.fullExtent = new that.gisConstructor.Extent(-180, -90, 180, 90,
                         this.spatialReference));
 
-                    this.tileInfo = new TileInfo(tileInfo);
+                    this.tileInfo = new that.gisConstructor.TileInfo(tileInfo);
                     this.loaded = true;
                     this.onLoad(this);
                 },
@@ -74,51 +66,41 @@ export default {
                         level + '&TILEROW=' + row + '&TILECOL=' + col + '&FORMAT=tiles';
                 }
             });
-            return {
-                Map,
-                TiledMapServiceLayer,
-                SpatialReference,
-                Extent,
-                TileInfo,
-                Point,
-                Circle,
-                SimpleFillSymbol,
-                Graphic,
-                GraphicsLayer,
-            };
         },
-        initMap(obj) {
-            this.mapObj = obj;// 将对象保存到vue data 的 maoObj中,方便调用;
-            let map = new obj.Map('map', {logo: false});// 创建地图实例
-            let pt = new obj.Point(105, 29); // 设置中心点
+        initMap() {
+            let map = new this.gisConstructor.map('map', {logo: false});// 创建地图实例
+            this.gisInst.map = map;// 绑定到组件，方便操作
+
+            let pt = new this.gisConstructor.Point(105, 29); // 设置中心点
             map.centerAndZoom(pt, 8); // 设置中心点和缩放级别;
+
             let img = new TDT('img'); // 影像
             let cia = new TDT('cia');//路网
+
             map.addLayer(img); // 将图层添加到map对象
             map.addLayer(cia);
-            this.mapObj.map = map;
-            this.createCircle(); // 调用画圆方法
+
+            this.createCircle();
         },
         createCircle() {
-            let symbol = new this.mapObj.SimpleFillSymbol().setColor(null).outline.setColor('#ff0');
-            let gl = new this.mapObj.GraphicsLayer({id: 'circles'});
-            this.mapObj.map.addLayer(gl);
-            for (let i = 0; i < 50000; i++) {// 循环随机画几何图形
-                /*let circle = new this.mapObj.Circle({
-                 radius: 5000 * (Math.random() + 0.5),
-                 center: [105 * (Math.random() + 0.5), 29 * (Math.random() + 0.5)]
-                 });*/
+            let symbol = new this.gisConstructor.SimpleFillSymbol().setColor(null).outline.setColor('#ff0');
+            let gl = new this.gisConstructor.GraphicsLayer({id: 'circles'});
+
+            this.gisInst.map.addLayer(gl);
+
+            for (let i = 0; i < 50000; i++) {
                 let randomx = Math.random();
                 let randomy = Math.random();
 
-                let extent = new this.mapObj.Extent({
+                let extent = new this.gisConstructor.Extent({
                     'xmin': 105 * (randomx + 0.5),
                     'ymin': 29 * (randomx + 0.5),
                     'xmax': 105.1 * (randomx + 0.5),
                     'ymax': 29.2 * (randomy + 0.0000000005),
                     'spatialReference': {'wkid': 4326}
                 });
-                let graphic = new this.mapObj.Graphic(extent, symbol);
+
+                let graphic = new this.gisConstructor.graphic(extent, symbol);
                 gl.add(graphic);
             }
         }
