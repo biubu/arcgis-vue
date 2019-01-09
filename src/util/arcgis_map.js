@@ -28,10 +28,10 @@ export default {
     methods: {
         init() {
             // 加载css;
-            loadCss('http://arcgis.biubu.cn/esri/css/esri.css');
+            loadCss('http://arcgis.biubu.cn/v326/esri/css/esri.css');
             // 加载模块
             loadModules(this.gisModules, {
-                url: 'http://arcgis.biubu.cn/init.js',
+                url: 'http://arcgis.biubu.cn/v326/init.js',
             }).then(this.TDTinstance)
                 .then(this.initMap);
         },
