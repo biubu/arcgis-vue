@@ -7,7 +7,8 @@
 `APIURL`
 
 4. API中使用的是 `https` 协议,开发环境没有`https`,所以将 `baseUrl`中的`https` 改成了`http`,如果API的url支持的`https`话请改回来;记得`init.js` 和`dojo.js`都要改
-5. 关于代码中的 `http://arcgis.biubu.cn/init.js`,这是在阿里云上自己搭建了一套API,1M的带宽有些力不从心,不建议在开发环境使用,一个 1.3MB的init.js 加载要十几秒
-.强烈建议自己本地部署API.并且不确定哪天就停止服务了.**千万别在生产环境使用!**
+5. 取消了 API 地址,某些人太不自觉了,有公网服务器都懒得自己部署一套 API,活生生的把我的一个CPU性能只有 10%的服务器拖垮了,所以就删除了,自己照着部署去.
+~~关于代码中的 `http://arcgis.biubu.cn/init.js`,这是在阿里云上自己搭建了一套API,1M的带宽有些力不从心,不建议在开发环境使用,一个 1.3MB的init.js 加载要十几秒
+.强烈建议自己本地部署API.并且不确定哪天就停止服务了.**千万别在生产环境使用!**~~
 
 6. 关于 3.26 的 API,请参考[这里](https://github.com/wjqh/arcgis_api_js_3.26)

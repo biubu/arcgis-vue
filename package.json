@@ -14,13 +14,13 @@
         "vuex": "^3.0.1"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.0.4",
-        "@vue/cli-plugin-eslint": "^3.0.4",
-        "@vue/cli-service": "^3.0.4",
+        "@vue/cli-plugin-babel": "^3.5.0",
+        "@vue/cli-plugin-eslint": "^3.5.0",
+        "@vue/cli-service": "^3.5.0",
         "less": "^3.0.4",
         "less-loader": "^4.1.0",
         "lint-staged": "^7.2.2",
-        "vue-template-compiler": "^2.5.17"
+        "vue-template-compiler": "^2.6.8"
     },
     "eslintConfig": {
         "root": true,
