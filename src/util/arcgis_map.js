@@ -61,9 +61,10 @@ export default {
                 // http://t1.tianditu.gov.cn/DataServer?T=cva_w&x=1644&y=814&l=11&tk=2ce94f67e58faa24beb7cb8a09780552
                 getTileUrl(level, row, col) {
                     // console.log(level, row, col);
+                    // 密钥请自己上天地图官网申请去
                     // eslint-disable-next-line
-                    return `http://t${col % 8}.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX=${level}&TILEROW=${row}&TILECOL=${col}&tk=3c74a3a567d6229e500e4539c9472c1e
-`;
+                    return `http://t${col % 8}.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX=${level}&TILEROW=${row}&TILECOL=${col}&tk=你的密钥`;
+
                     /* return 'http://t' + col % 8 + '.tianditu.cn/' + this._maptype + '_c/wmts?' +
                      'SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=' + this._maptype +
                      '&STYLE=default&TILEMATRIXSET=c&TILEMATRIX=' +
