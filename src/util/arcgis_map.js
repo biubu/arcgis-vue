@@ -28,10 +28,12 @@ export default {
     methods: {
         init() {
             // 加载css;
-            loadCss('http://arcgis.biubu.cn/v326/esri/css/esri.css');
+            // loadCss('http://arcgis.biubu.cn/v326/esri/css/esri.css');
+            loadCss('3.29');
+
             // 加载模块
             loadModules(this.gisModules, {
-                url: 'http://arcgis.biubu.cn/v326/init.js',
+                version: '3.29'
             }).then(this.TDTinstance)
                 .then(this.initMap);
         },
@@ -58,17 +60,10 @@ export default {
                     this.loaded = true;
                     this.onLoad(this);
                 },
-                // http://t1.tianditu.gov.cn/DataServer?T=cva_w&x=1644&y=814&l=11&tk=2ce94f67e58faa24beb7cb8a09780552
                 getTileUrl(level, row, col) {
-                    // console.log(level, row, col);
-                    // 密钥请自己上天地图官网申请去
                     // eslint-disable-next-line
-                    return `http://t${col % 8}.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX=${level}&TILEROW=${row}&TILECOL=${col}&tk=你的密钥`;
-
-                    /* return 'http://t' + col % 8 + '.tianditu.cn/' + this._maptype + '_c/wmts?' +
-                     'SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=' + this._maptype +
-                     '&STYLE=default&TILEMATRIXSET=c&TILEMATRIX=' +
-                     level + '&TILEROW=' + row + '&TILECOL=' + col + '&FORMAT=tiles';*/
+                    return `http://t1.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX=${level}&TILEROW=${row}&TILECOL=${col}&tk=fa66ded203b504471b9f7ae00c69611f
+`;
                 }
             });
         },
@@ -77,7 +72,7 @@ export default {
             this.gisInst.map = map;// 绑定到组件，方便操作
 
             let pt = new this.gisConstructor.Point(105, 29); // 设置中心点
-            map.centerAndZoom(pt, 2); // 设置中心点和缩放级别;
+            map.centerAndZoom(pt, 5); // 设置中心点和缩放级别;
 
             let img = new TDT('img'); // 影像
             let cia = new TDT('cia');//路网
@@ -93,7 +88,7 @@ export default {
 
             this.gisInst.map.addLayer(gl);
 
-            for (let i = 0; i < 50000; i++) {
+            for (let i = 0; i < 5; i++) {
                 let randomx = Math.random();
                 let randomy = Math.random();
 
