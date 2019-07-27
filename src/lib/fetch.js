@@ -8,10 +8,9 @@ import axios from 'axios';
 axios.defaults.timeout = 300000; // 超时设置
 
 let baseUrl = 'http://localhost:9090/api';
-// let baseUrl = 'http://node.biubu.cn';
 axios.defaults.baseURL = baseUrl;
 
-// POST传参序列化
+// 请求发出前的处理
 // axios.interceptors.request.use ((config) => {
 //     if(config.method === 'post') {
 //         config.data = qs.stringify (config.data);
@@ -21,6 +20,7 @@ axios.defaults.baseURL = baseUrl;
 //     console.log ('错误的传参', error);
 //     return Promise.reject (error);
 // });
+
 // 返回状态判断
 axios.interceptors.response.use((res) => {
     if(!res.data) {
@@ -29,13 +29,11 @@ axios.interceptors.response.use((res) => {
 
     return res;
 }, (error) => {
-    // toast ('网络异常', error);
     return Promise.reject(error);
 });
 
 export const fetch = (url, params = {}) => {
     return new Promise((resolve, reject) => {
-        // axios.post (url, params)
         axios.post(url, params).then(response => {
             resolve(response.data);
         }, err => {
