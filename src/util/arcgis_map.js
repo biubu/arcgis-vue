@@ -71,7 +71,7 @@ export default {
             let map = new this.gisConstructor.map('map', {logo: false});// 创建地图实例
             this.gisInst.map = map;// 绑定到组件，方便操作
 
-            let pt = new this.gisConstructor.Point(105, 29); // 设置中心点
+            let pt = new this.gisConstructor.Point(85, -29); // 设置中心点
             map.centerAndZoom(pt, 5); // 设置中心点和缩放级别;
 
             let img = new TDT('img'); // 影像
@@ -88,15 +88,15 @@ export default {
 
             this.gisInst.map.addLayer(gl);
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 50; i++) {
                 let randomx = Math.random();
                 let randomy = Math.random();
 
                 let extent = new this.gisConstructor.Extent({
                     'xmin': 105 * (randomx + 0.5),
-                    'ymin': 29 * (randomx + 0.5),
+                    'ymin': -29 * (randomx + 0.5),
                     'xmax': 105.1 * (randomx + 0.5),
-                    'ymax': 29.2 * (randomy + 0.0000000005),
+                    'ymax': -29.2 * (randomy + 0.0000000005),
                     'spatialReference': {'wkid': 4326}
                 });
 
