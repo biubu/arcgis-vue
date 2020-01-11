@@ -13,11 +13,7 @@
     </div>
 </template>
 
-<script>
-import base from '../util/base';
-
-export default base;
-</script>
+<script src="../util/base.js"></script>
 
 <style lang = "less">
     .home {
