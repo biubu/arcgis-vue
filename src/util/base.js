@@ -71,8 +71,8 @@ export default {
                     wkid: 4326
                 },
                 map: map,
-                scale: 700000,
-                center: [119.42610500035, 32.76651600041],
+                scale: 7000000,
+                center: [111.42610500035, 33.76651600041],
 
             });
 
@@ -113,7 +113,10 @@ export default {
                 '&tk=fa66ded203b504471b9f7ae00c69611f',
                 {
                     subDomains: ['t0', 't1', 't2', 't3', 't4', 't5', 't6', 't7'],
-                    tileInfo: tileInfo
+                    tileInfo: tileInfo,
+                    spatialReference: {
+                        wkid: 4326
+                    },
                 });
 
             this.layerID[mapType] = result.id;
