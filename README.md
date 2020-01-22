@@ -1,6 +1,24 @@
 # arcgis-vue
-[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
-[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+
+
+### 使用步骤:
+1. 安装依赖:
+     ```
+     npm install
+    ```
+2. 启动服务:
+    ```
+    npm run serve
+    ```
+3. 查看:
+    打开浏览器,输入命令行的地址查看.共加载了两种不同的地图,路由分别是:
+    ```bash
+   http://localhost:8080
+    ```
+   和
+   ```
+   http://localhost:8080/410
+   ```
 
 ### 升级到arcgis for js 3.26
 1. api 不再集成到项目`static`目录里面,需要单独部署到tomcat里面
