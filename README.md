@@ -1,5 +1,6 @@
 # arcgis-vue
 
+![View](pic.png)
 
 ### 使用步骤:
 1. 安装依赖:
@@ -15,8 +16,8 @@
     ```bash
    http://localhost:8080
     ```
-   和
-   ```
+   其中`http://localhost:8080`可以加载不同的图层,并且可以切换。这个,和
+   ```bash
    http://localhost:8080/410
    ```
 
