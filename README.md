@@ -1,6 +1,6 @@
 # arcgis-vue
 
-![View](pic.png)
+![View](./pic.png)
 
 ### 使用步骤:
 1. 安装依赖:
