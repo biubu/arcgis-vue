@@ -76,6 +76,8 @@ export default {
 
             });
 
+            this.view = view;
+
             let applicationDiv = document.createElement('div');
             this.gisInstance.map = map;
             this.gisInstance.mapView = view;
@@ -144,6 +146,11 @@ export default {
                 geometry: point
             });
         }
+    },
+    beforeDestroy() {
+        if(this.view) {
+            // destroy the map view
+            this.view.container = null;
+        }
     }
-
 };

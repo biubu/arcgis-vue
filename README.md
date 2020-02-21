@@ -2,6 +2,15 @@
 
 ![View](./pic.png)
 
+
+### 官方文档
+
+首先请确保熟悉一下两篇文档：
+
+- esri-loader 官方仓库的地址点击 [这里](https://github.com/Esri/esri-loader)。
+
+- Aricgis api for js 再vue中的使用请点击 [这里](https://developers.arcgis.com/javascript/latest/guide/vue/)。
+
 ### 使用步骤:
 1. 安装依赖:
      ```
@@ -12,17 +21,7 @@
     npm run serve
     ```
 3. 查看:
-    打开浏览器,输入命令行的地址查看.共加载了两种不同的地图,路由分别是:
-    ```bash
-   http://localhost:8080
-    ```
-   其中`http://localhost:8080`可以加载不同的图层,并且可以切换。这个,和
-   ```bash
-   http://localhost:8080/410
-   ```
 
-### 升级到arcgis for js 3.26
-1. api 不再集成到项目`static`目录里面,需要单独部署到tomcat里面
-2. 采用@vue/cli 3.x版本
-3. 添加了4.x 例子,可切换影像图和矢量图,详情请参见路由 `http://localhost:8080/410`
-4. API 全部使用官网的CDN,速度还不错.
+ - localhost:8080/329  加载了3.29版本的API
+ - localhost:8080/latest  加载CDN上最新版的API,图层是天地图
+ - localhost:8080/official  官方VUE使用教程
