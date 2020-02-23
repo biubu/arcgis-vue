@@ -95,7 +95,7 @@ export default {
                 let extent = new this.gisConstructor.Extent({
                     'xmin': 105 * (randomx + 0.5),
                     'ymin': -29 * (randomx + 0.5),
-                    'xmax': 105.1 * (randomx + 0.5),
+                    'xmax': 106.9 * (randomx + 0.5),
                     'ymax': -29.2 * (randomy + 0.0000000005),
                     'spatialReference': {'wkid': 4326}
                 });
