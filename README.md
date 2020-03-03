@@ -25,3 +25,11 @@
  - localhost:8080/329  加载了3.29版本的API
  - localhost:8080/latest  加载CDN上最新版的API,图层是天地图
  - localhost:8080/official  官方VUE使用教程
+
+
+### 鸣谢:
+ ![Logo](./src/assets/jetbrains.svg)
+ 
+感谢 [JetBrains]( https://www.jetbrains.com/?from=arcgis-vue ) 对该项目的大力支持，特别感谢。
+
+
