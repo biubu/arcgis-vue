@@ -1,5 +1,7 @@
-import { loadCss, loadModules } from 'esri-loader';
+import { loadCss, loadModules, /*setDefaultOptions*/ } from 'esri-loader';
 import tileInfo from '../util/tileInfo';
+/*加载特定版本的API*/
+// setDefaultOptions({ version: 'next' });
 
 export default {
     name: 'BaseMap',
