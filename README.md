@@ -10,7 +10,7 @@
 - esri-loader 官方仓库的地址点击 [这里](https://github.com/Esri/esri-loader)。
 
 - Aricgis api for js 再vue中的使用请点击 [这里](https://developers.arcgis.com/javascript/latest/guide/vue/)。
-
+- 这里准备了一些之前的 [笔记](./note.md)
 ### 使用步骤:
 1. 安装依赖:
      ```
