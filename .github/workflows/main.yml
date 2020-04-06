@@ -27,3 +27,5 @@ jobs:
                 # 运行检查
             -   name: eslint check
                 run: npm run lint
+            -   name: build
+                run: npm run build
