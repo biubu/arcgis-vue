@@ -1,6 +1,6 @@
 # arcgis-vue
 
-![View](./pic.png)
+![View](http://cdn.biubu.cn/pic.png)
 
 
 ### 官方文档
