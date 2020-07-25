@@ -29,6 +29,10 @@
  - localhost:8080/official  官方VUE使用教程
 
 
+## 贡献代码
+   [参考这里](.github/CONTRIBUTING.md)
+
+
 ### 鸣谢:
  ![Logo](./src/assets/jetbrains.svg)
  
