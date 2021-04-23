@@ -13,7 +13,7 @@ export default new Router({
         {
             path: '/',
             name: 'base',
-            redirect: '/329'
+            redirect: '/official'
         }, {
             path: '/329',
             name: 'Home',
