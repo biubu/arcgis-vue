@@ -1,41 +1,18 @@
-# arcgis-vue
+# Vue 3 + TypeScript + Vite
 
-![View](./pic.png)
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-![GIS](./gis.png)
+## Recommended IDE Setup
 
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-### 官方文档
+## Type Support For `.vue` Imports in TS
 
-首先请确保熟悉一下两篇文档：
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-- esri-loader 官方仓库的地址点击 [这里](https://github.com/Esri/esri-loader)。
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
-- Aricgis api for js 再vue中的使用请点击 [这里](https://developers.arcgis.com/javascript/latest/guide/vue/)。
-- 这里准备了一些之前的 [笔记](./note.md)
-### 使用步骤:
-1. 安装依赖:
-     ```
-     npm install
-    ```
-2. 启动服务:
-    ```
-    npm run serve
-    ```
-3. 查看:
-
- - localhost:8080/329  加载了3.29版本的API
- - localhost:8080/latest  加载CDN上最新版的API,图层是天地图
- - localhost:8080/official  官方VUE使用教程
-
-
-## 贡献代码
-   [参考这里](.github/CONTRIBUTING.md)
-
-
-### 鸣谢:
- ![Logo](./src/assets/jetbrains.svg)
- 
-感谢 [JetBrains]( https://www.jetbrains.com/?from=arcgis-vue ) 对该项目的大力支持，特别感谢。
-
-
+1. Disable the built-in TypeScript Extension
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
