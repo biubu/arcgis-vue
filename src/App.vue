@@ -6,25 +6,28 @@
 import WebMap from "@arcgis/core/WebMap";
 import MapView from "@arcgis/core/views/MapView";
 import { onMounted, ref } from "vue";
-
+import Map from '@arcgis/core/Map';
+// import MapView from '@arcgis/core/views/MapView';
 const mapdiv = ref();
 
 onMounted(() => {
-  const webmap = new WebMap({
-    portalItem: {
-      id: "aa1d3f80270146208328cf66d022e09c",
-    },
-  });
+const map = new Map({
+  basemap: "topo-vector",
+});
 
-
-  const view = new MapView({
-    container: mapdiv.value,
-    map: webmap,
-  });
+const view = new MapView({
+  container: mapdiv.value,
+  map: map,
+  center:[108,34],
+  zoom:5,
+});
 })
-
 </script>
 
 <style scoped>
-@import './main.css';
+.mapdiv {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
 </style>
