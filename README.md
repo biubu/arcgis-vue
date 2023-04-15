@@ -9,6 +9,3 @@
 感谢 [JetBrains]( https://www.jetbrains.com/?from=arcgis-vue ) 对该项目的大力支持，特别感谢。
 
 <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains 徽标（主要） logo." style="width: 200px;">
-
-
-
