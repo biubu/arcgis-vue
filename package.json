@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@arcgis/core": "^4.34.8",
-    "vue": "^3.5.24"
+    "vue": "^3.5.29"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.4",
