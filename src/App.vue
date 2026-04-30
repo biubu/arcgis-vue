@@ -4,10 +4,10 @@
 
 <script lang="ts" setup>
 import MapView from "@arcgis/core/views/MapView";
-import {onMounted, ref} from "vue";
+import { onMounted, onUnmounted, shallowRef } from "vue";
 import Map from '@arcgis/core/Map';
 
-const mapdiv = ref();
+const mapdiv = shallowRef();
 
 onMounted(() => {
     const map = new Map({
@@ -20,7 +20,11 @@ onMounted(() => {
         center: [108, 34],
         zoom: 5,
     });
-})
+
+    onUnmounted(() => {
+        view.destroy();
+    });
+});
 </script>
 
 <style scoped>
