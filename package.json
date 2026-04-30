@@ -9,13 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@arcgis/core": "^5.0.16",
-    "vue": "^3.5.32"
+    "@arcgis/core": "^5.0.17",
+    "vue": "^3.5.33"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.6",
     "typescript": "^5.9.3",
-    "vite": "^8.0.8",
-    "vue-tsc": "^3.2.6"
+    "vite": "^8.0.10",
+    "vue-tsc": "^3.2.7"
   }
 }
