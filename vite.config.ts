@@ -10,8 +10,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['@arcgis/core'],
-    exclude: ['@arcgis/core/assets'],
+    exclude: ['@arcgis/core', '@arcgis/core/assets'],
   },
   build: {
     target: 'esnext',
