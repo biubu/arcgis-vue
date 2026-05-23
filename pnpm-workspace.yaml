@@ -1,0 +1,2 @@
+allowBuilds:
+  '@vaadin/vaadin-usage-statistics': true
