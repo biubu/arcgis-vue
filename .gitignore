@@ -23,6 +23,10 @@ npm-debug.log*
 
 # TypeScript cache
 .tsbuildinfo
+.eslintcache
+
+# Tooling
+.playwright-mcp/
 
 # Environment
 .env

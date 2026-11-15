@@ -6,17 +6,32 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,vue,css}\""
+  },
+  "engines": {
+    "node": ">=22"
   },
   "dependencies": {
-    "@arcgis/core": "^5.0.17",
-    "vue": "^3.5.38",
-    "vue-router": "^5.1.0"
+    "@arcgis/core": "^5.2.4",
+    "vue": "^3.5.45",
+    "vue-router": "^5.5.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitejs/plugin-vue": "^6.0.11",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.12.1",
+    "globals": "^17.14.0",
+    "jiti": "^2.7.0",
+    "prettier": "^3.10.1",
     "typescript": "^6.0.3",
-    "vite": "^8.1.0",
-    "vue-tsc": "^3.3.5"
+    "vite": "^8.3.8",
+    "vite-plugin-compression2": "^2.5.4",
+    "vue-tsc": "^3.3.14"
   }
 }

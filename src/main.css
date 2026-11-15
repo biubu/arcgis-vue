@@ -1,4 +1,4 @@
-@import 'https://js.arcgis.com/4.26/@arcgis/core/assets/esri/themes/light/main.css';
+/* ArcGIS 主题样式由 main.ts 从 @arcgis/core 本地导入，与 SDK 版本保持一致 */
 html,
 body,
 #app {
