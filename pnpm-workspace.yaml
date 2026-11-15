@@ -1,2 +1,9 @@
 allowBuilds:
   '@vaadin/vaadin-usage-statistics': true
+
+# 修复传递依赖安全漏洞（Dependabot alerts #72/74/76/77/83），只覆盖受影响版本段
+overrides:
+  nanoid@<3.3.18: '>=3.3.18 <4'
+  postcss@<=8.5.17: '>=8.5.18 <9'
+  source-map-js@<1.2.2: '>=1.2.2 <2'
+  minimatch@>=7 <11.0.1: '>=11.0.1 <12'
